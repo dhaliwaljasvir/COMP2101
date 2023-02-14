@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Creating (F) Variable to store information of free disk file on rootfilesystem
-F=$(df -h /dev/sda3 |grep Avail -v |awk '{print $4}')
+F=$(df -h / |grep Avail -v |awk '{print $4}')
 
 #Creating (M) Variable to store info of version and operating system name
 M=$(cat /etc/issue|awk '{print ($1,$2, $3)}'|awk '!/^[[:space:]]*$/')
