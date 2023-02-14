@@ -10,7 +10,7 @@ M=$(cat /etc/issue|awk '{print ($1,$2, $3)}'|awk '!/^[[:space:]]*$/')
 cat << EOF
 Report for myvm
 ===============
-FQDN: $(hostname)
+FQDN: $(hostname -f)
 Operating System name and version: $M
 IP Address: $(hostname -I)
 Root Filesystem Free Space: $F
