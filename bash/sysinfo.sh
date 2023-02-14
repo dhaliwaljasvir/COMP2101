@@ -15,5 +15,6 @@ Operating System name and version: $M
 IP Address: $(hostname -I)
 Root Filesystem Free Space: $F
 ===============
-
 EOF
+
+
