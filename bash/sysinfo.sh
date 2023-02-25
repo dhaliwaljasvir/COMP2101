@@ -18,3 +18,15 @@ Root Filesystem Free Space: $F
 EOF
 
 
+#!/bin/bash
+
+cat <<EOF
+FQDN: $(hostname)
+Host Information:
+ $(hostnamectl)
+IP Address:
+$(hostname -I)
+root Filesystem Status:
+$(df -h /)
+
+EOF
