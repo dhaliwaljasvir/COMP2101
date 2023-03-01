@@ -18,7 +18,7 @@ function error-message {
 echo "error in loading >>>>> $1"
 exit 1 
 }
-
+trap error-message SIGTERM
 # This function will send a message to stderr and exit with a failure status
 # Usage:
 #   error-exit ["some text to print to stderr" [exit-status]]
@@ -26,6 +26,7 @@ function error-exit {
 echo " $1 >>>> doesnot worked" 
 exit 1
 }
+trap error-exit SIGTERM
 #This function displays help information if the user asks for it on the command line or gives us a bad command line
 
 function displayhelp {
@@ -42,6 +43,7 @@ echo  "--disk       to display information about disk"\n
 echo  "--printer    to display information about printer"
 exit 1
 } 
+trap displayhelp SIGTERM
 # This function will remove all the temp files created by the script
 # The temp files are all named similarly, "/tmp/somethinginfo.$$"
 function cleanup {
@@ -51,6 +53,7 @@ function cleanup {
 }
 
 # A trap command is used after the function definition to specify this function is to be run if we get a ^C while running
+trap cleanup SIGTERM
 
 # End of section to be done for TASK
 # Remainder of script does not require any modification, but may need to be examined in order to create the functions for TASK
